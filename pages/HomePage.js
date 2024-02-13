@@ -1,11 +1,25 @@
 class HomePage {
     constructor(page) {
         this.page = page;
-        this.productLink = (productName) => `//a[contains(text(),'${productName}')]`;
     }
+    selectors = {
+        productLink: (productName) => `//a[contains(text(),'${productName}')]`,
+    };
+
+    validationSelectors = {
+
+    };
+
+    buttons = {
+
+    };
+
+    errorMap = {
+
+    };
 
     async goToProduct(productName) {
-        await this.page.click(this.productLink(productName));
+        await this.page.click(this.selectors.productLink(productName));
     }
 }
 
