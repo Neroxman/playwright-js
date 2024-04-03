@@ -1,13 +1,12 @@
-class HomePage {
+import BasePage from '../helper/utils/BasePage';
+
+class HomePage extends BasePage {
     constructor(page) {
+        super(page);
         this.page = page;
     }
     selectors = {
         productLink: (productName) => `//a[contains(text(),'${productName}')]`,
-    };
-
-    validationSelectors = {
-
     };
 
     buttons = {
