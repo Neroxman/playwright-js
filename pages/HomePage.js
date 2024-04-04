@@ -5,6 +5,7 @@ class HomePage extends BasePage {
         super(page);
         this.page = page;
     }
+    
     selectors = {
         productLink: (productName) => `//a[contains(text(),'${productName}')]`,
     };

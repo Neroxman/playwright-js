@@ -5,7 +5,8 @@ export default defineConfig({
   fullyParallel: true,
 
   use: {
-    headless: false
+    headless: false,
+    slowMo: 10000,
   },
 
   projects: [

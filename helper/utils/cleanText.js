@@ -4,8 +4,6 @@
  * @return {string} Cleaned text.
  */
 
-function cleanText(text) {
-    return text.replace(/\s+/g, ' ').trim();
-}
+const cleanText = (text) => text.replace(/\s+/g, ' ').trim();
 
 export default cleanText;

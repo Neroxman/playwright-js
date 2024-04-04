@@ -5,6 +5,7 @@ class ProductPage extends BasePage {
         super(page);
         this.page = page;
     }
+    
     selectors = {
         productName: '.name',
         productDescription: '#more-information p'
@@ -19,11 +20,11 @@ class ProductPage extends BasePage {
     };
 
     async getProductName() {
-        return this.page.locator(this.selectors.productName).textContent();
+        return this.getElementText(this.selectors.productName);
     }
 
     async getProductDescription() {
-        return this.page.locator(this.selectors.productDescription).textContent();
+        return this.getElementText(this.selectors.productDescription);
     }
 }
 
