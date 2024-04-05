@@ -12,7 +12,7 @@ class ProductPage extends BasePage {
     };
 
     buttons = {
-
+        addToCartButton: '.btn-success:has-text("Add to cart")'
     };
 
     errorMap = {

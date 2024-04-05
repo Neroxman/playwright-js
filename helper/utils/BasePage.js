@@ -28,6 +28,10 @@ export default class BasePage {
         await this.page.locator(selector).click();
     }
 
+    async clickOnFirstElement(selector) {
+        await this.page.locator(selector).first().click();
+    }
+
     async takeScreenshot(name) {
         await this.page.screenshot({ path: `screenshots/${name}.png` });
     }

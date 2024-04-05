@@ -41,6 +41,15 @@ test.describe('Product page tests', () => {
     });
   });
 
+  test('add product to the cart', async ({ page }) => {
+    await homePage.goToProduct(productNames.SAMSUNG_GALAXY_S6);
+    await productPage.clickOnButton(productPage.buttons.addToCartButton);
+
+    page.on('dialog', async dialog => {
+      expect(dialog.message()).toBe(alerts.PRODUCT_ADDED_TO_CART_SUCCESS);
+    });
+  });
+
   test.afterAll(async ({ browser }) => {
 
   });
