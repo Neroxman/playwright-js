@@ -5,7 +5,7 @@ import config from '../config';
 import { fakeContactData } from '../helper/fakeData/fakeContactData';
 import alerts from '../test-data/alerts.json';
 
-test.describe('Product page tests', () => {
+test.describe('Contact form tests', () => {
     let contactPage;
 
     test.beforeEach(async ({ page }) => {

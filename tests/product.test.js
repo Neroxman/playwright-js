@@ -22,6 +22,7 @@ test.describe('Product page tests', () => {
     test(`page for ${key} opens correctly`, async () => {
       await homePage.goToProduct(productName);
       const actualProductName = await productPage.getProductName();
+      
       expect(actualProductName).toBe(productName);
     });
   });
@@ -37,6 +38,7 @@ test.describe('Product page tests', () => {
       await homePage.goToProduct(productName);
       const actualProductDescription = await productPage.getProductDescription();
       const cleanedDescription = cleanText(actualProductDescription);
+
       expect(cleanedDescription).toBe(productDescription);
     });
   });

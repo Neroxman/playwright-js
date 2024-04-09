@@ -6,7 +6,7 @@ import productId from '../test-data/product_id';
 import product_name from '../test-data/product_name';
 import CartPage from '../pages/CartPage';
 
-test.describe('Product page tests', () => {
+test.describe('Cart page tests', () => {
     let cartPage;
 
     test.beforeEach(async ({ page }) => {
@@ -23,6 +23,7 @@ test.describe('Product page tests', () => {
     test('verify if the product is visible in the cart', async ({ page }) => {
         await page.waitForSelector(cartPage.tableMap.createdTable);
         const isVisible = await cartPage.isProductVisibleInCart(product_name.SAMSUNG_GALAXY_S6);
+        
         expect(isVisible).toBeTruthy();
     });
 
@@ -31,6 +32,7 @@ test.describe('Product page tests', () => {
         await cartPage.deleteProduct(productId.SAMSUNG_GALAXY_S6);
         await page.waitForTimeout(2000);
         const isVisible = await cartPage.isProductVisibleInCart(product_name.SAMSUNG_GALAXY_S6);
+
         expect(isVisible).toBeFalsy();
     });
 });

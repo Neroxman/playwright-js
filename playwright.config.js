@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+require('dotenv').config();
 
 export default defineConfig({
   testDir: './tests',
@@ -6,7 +7,7 @@ export default defineConfig({
 
   use: {
     headless: false,
-    slowMo: 10000,
+    timeout: 30000
   },
 
   projects: [

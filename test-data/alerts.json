@@ -1,4 +1,6 @@
 {
     "CONTACT_SEND_MESSAGE_SUCCESS": "Thanks for the message!!",
-    "PRODUCT_ADDED_TO_CART_SUCCESS": "Product added"
+    "PRODUCT_ADDED_TO_CART_SUCCESS": "Product added",
+    "WRONG_PASSWORD": "Wrong password.",
+    "EMPTY_LOGIN_FORM": "Please fill out Username and Password."
 }
