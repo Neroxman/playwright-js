@@ -49,8 +49,4 @@ test.describe('Product page tests', () => {
       expect(dialog.message()).toBe(alerts.PRODUCT_ADDED_TO_CART_SUCCESS);
     });
   });
-
-  test.afterAll(async ({ browser }) => {
-
-  });
 });
