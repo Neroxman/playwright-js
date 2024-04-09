@@ -1,4 +1,5 @@
 import BasePage from '../helper/utils/BasePage';
+
 class ContactPage extends BasePage {
     constructor(page) {
         super(page);
