@@ -10,14 +10,6 @@ class HomePage extends BasePage {
         productLink: (productName) => `//a[contains(text(),'${productName}')]`,
     };
 
-    buttons = {
-
-    };
-
-    errorMap = {
-
-    };
-
     async goToProduct(productName) {
         await this.page.click(this.selectors.productLink(productName));
     }

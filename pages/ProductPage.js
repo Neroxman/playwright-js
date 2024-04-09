@@ -15,10 +15,6 @@ class ProductPage extends BasePage {
         addToCartButton: '.btn-success:has-text("Add to cart")'
     };
 
-    errorMap = {
-
-    };
-
     async getProductName() {
         return this.getElementText(this.selectors.productName);
     }
