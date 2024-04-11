@@ -1,31 +1,19 @@
 import EndpointsMap from '../helper/EnpointsMap';
 import ApiTestBase from '../helper/utils/ApiTestBase';
+import LoginApi from '../api/LoginApi';
 const fs = require('fs').promises;
 const path = require('path');
 
-class ProductApi extends ApiTestBase {
+class CartApi extends ApiTestBase {
     constructor(page) {
         super(page);
         this.page = page;
     }
 
-    async addProductToCartUsingCookies(productId) {
-        const cookiePath = path.join(__dirname, '..', 'test-data', 'userCookie.json');
-        let cookieData;
+    async addProductToCartUsingApi(productId) {
+        const authToken = await this.loadAuthToken()
 
-        try {
-            const rawCookieData = await fs.readFile(cookiePath, 'utf-8');
-            cookieData = JSON.parse(rawCookieData);
-        } catch (error) {
-            throw new Error(`Error reading user cookie file: ${error.message}`);
-        }
-    
-        const userCookie = cookieData.userCookie;
-        if (!userCookie) {
-            throw new Error("Cannot find user cookie");
-        }
-
-        const response = await this.page.evaluate(async ({ productId, userCookie }) => {
+        const response = await this.page.evaluate(async ({ productId, authToken }) => {
             try {
                 const response = await fetch('https://api.demoblaze.com/addtocart', {
                     method: 'POST',
@@ -33,15 +21,15 @@ class ProductApi extends ApiTestBase {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
+                        cookie: `${authToken}`,
+                        flag: true,
                         id: productId,
-                        cookie: `user=${userCookie}`,
-                        prod_id: 1,
-                        flag: false
+                        prod_id: 1
                     })
                 });
-    
+
                 const responseText = await response.text();
-    
+
                 try {
                     return JSON.parse(responseText);
                 } catch (error) {
@@ -53,10 +41,10 @@ class ProductApi extends ApiTestBase {
                 console.error('Error during fetch:', error);
                 throw error;
             }
-        }, { productId, userCookie });
+        }, { productId, authToken });
 
         return response;
     }
 }
 
-export default ProductApi;
+export default CartApi;

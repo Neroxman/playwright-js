@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
-import ProductApi from '../api/ProductApi';
-import BasePage from '../helper/utils/BasePage';
-import config from '../config';
-import productId from '../test-data/product_id';
-import product_name from '../test-data/product_name';
-import CartPage from '../pages/CartPage';
+import ProductApi from '../../api/ProductApi';
+import BasePage from '../../helper/utils/BasePage';
+import config from '../../config';
+import productId from '../../test-data/product_id';
+import product_name from '../../test-data/product_name';
+import CartPage from '../../pages/CartPage';
 
 test.describe('Cart page tests', () => {
     let cartPage;
@@ -12,7 +12,7 @@ test.describe('Cart page tests', () => {
     test.beforeEach(async ({ page }) => {
         const productApi = new ProductApi(page);
         await productApi.getGuestUserCookie();
-        await productApi.addProductToCart(productId.SAMSUNG_GALAXY_S6); 
+        await productApi.addProductToCartUsingCookies(productId.SAMSUNG_GALAXY_S6); 
         const basePage = new BasePage(page);
         await basePage.goTo(config.baseUrl);
         await basePage.loadUserCookies();

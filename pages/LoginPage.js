@@ -29,6 +29,13 @@ class LoginPage extends BasePage {
     async getWelcomeText() {
         return this.getElementText(this.buttons.welcomeButton);
     }
+
+    async successfullyLogIn({ username, password }) {
+        await this.goToLoginForm()
+        await this.fillAndBlur(this.formFieldsMap.usernameInput, username);
+        await this.fillAndBlur(this.formFieldsMap.passwordInput, password);
+        await this.clickOnButton(this.buttons.submitButton);
+    }
 }
 
 export default LoginPage;

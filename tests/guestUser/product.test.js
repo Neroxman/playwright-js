@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
-import HomePage from '../pages/HomePage';
-import ProductPage from '../pages/ProductPage';
-import productNames from '../test-data/product_name.json';
-import productDescriptions from '../test-data/product_description.json';
-import cleanText from '../helper/utils/cleanText';
-import BasePage from '../helper/utils/BasePage';
-import config from '../config';
+import HomePage from '../../pages/HomePage';
+import ProductPage from '../../pages/ProductPage';
+import productNames from '../../test-data/product_name.json';
+import productDescriptions from '../../test-data/product_description.json';
+import cleanText from '../../helper/utils/cleanText';
+import BasePage from '../../helper/utils/BasePage';
+import config from '../../config';
 
 test.describe('Product page tests', () => {
   let homePage;

@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
-import ContactPage from '../pages/ContactPage';
-import BasePage from '../helper/utils/BasePage';
-import config from '../config';
-import { fakeContactData } from '../helper/fakeData/fakeContactData';
-import alerts from '../test-data/alerts.json';
+import ContactPage from '../../pages/ContactPage';
+import BasePage from '../../helper/utils/BasePage';
+import config from '../../config';
+import { fakeContactData } from '../../helper/fakeData/fakeContactData';
+import alerts from '../../test-data/alerts.json';
 
 test.describe('Contact form tests', () => {
     let contactPage;
