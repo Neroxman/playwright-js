@@ -38,13 +38,13 @@ test.describe('Login form tests', () => {
 
     test('successfully log in to the app', async ({ page }) => {
         await loginPage.fillLoginForm({
-            username: process.env.USERNAME,
+            username: process.env.USER,
             password: process.env.PASSWORD
         });
 
         await loginPage.clickOnButton(loginPage.buttons.submitButton);
         await page.waitForSelector(loginPage.buttons.welcomeButton);
         
-        expect(await loginPage.getWelcomeText()).toBe(`Welcome ${process.env.USERNAME}`);
+        expect(await loginPage.getWelcomeText()).toBe(`Welcome ${process.env.USER}`);
     });
 });

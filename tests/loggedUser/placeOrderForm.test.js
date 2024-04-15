@@ -23,7 +23,7 @@ test.describe('Login form tests', () => {
         const basePage = new BasePage(page);
         await basePage.goTo(config.baseUrl);
         await loginPage.successfullyLogIn({
-            username: process.env.USERNAME,
+            username: process.env.USER,
             password: process.env.PASSWORD
         });
         await placeOrderPage.goToPlaceOrderForm();
