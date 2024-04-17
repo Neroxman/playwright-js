@@ -13,7 +13,7 @@ test.describe('Login form tests', () => {
     let cartApi;
     let placeOrderPage;
 
-    test.beforeEach(async ({ page }) => {
+    test.beforeEach('Setup and add the product via API', async ({ page }) => {
         loginApi = new LoginApi(page);
         loginPage = new LoginPage(page);
         cartApi = new CartApi(page);
@@ -23,15 +23,14 @@ test.describe('Login form tests', () => {
         const basePage = new BasePage(page);
         await basePage.goTo(config.baseUrl);
         await loginPage.successfullyLogIn({
-            username: process.env.USER,
-            password: process.env.PASSWORD
+            username: process.env.ADMIN_USERNAME,
+            password: process.env.ADMIN_PASSWORD
         });
         await placeOrderPage.goToPlaceOrderForm();
-
-        await page.waitForTimeout(5000)
     });
 
     test('succesfully place the order', async ({ page }) => {
+
 
     });
 

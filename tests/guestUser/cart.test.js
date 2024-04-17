@@ -32,7 +32,7 @@ test.describe('Cart page tests', () => {
         await cartPage.deleteProduct(productId.SAMSUNG_GALAXY_S6);
         await page.waitForTimeout(2000);
         const isVisible = await cartPage.isProductVisibleInCart(product_name.SAMSUNG_GALAXY_S6);
-
+        
         expect(isVisible).toBeFalsy();
     });
 });

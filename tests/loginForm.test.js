@@ -8,7 +8,7 @@ import loginFakeData from '../test-data/loginFakeData.json';
 test.describe('Login form tests', () => {
     let loginPage;
 
-    test.beforeEach(async ({ page }) => {
+    test.beforeEach('Setup and go to login form', async ({ page }) => {
         const basePage = new BasePage(page);
         await basePage.goTo(config.baseUrl);
         loginPage = new LoginPage(page);
@@ -38,13 +38,13 @@ test.describe('Login form tests', () => {
 
     test('successfully log in to the app', async ({ page }) => {
         await loginPage.fillLoginForm({
-            username: process.env.USER,
-            password: process.env.PASSWORD
+            username: process.env.ADMIN_USERNAME,
+            password: process.env.ADMIN_PASSWORD
         });
 
         await loginPage.clickOnButton(loginPage.buttons.submitButton);
         await page.waitForSelector(loginPage.buttons.welcomeButton);
         
-        expect(await loginPage.getWelcomeText()).toBe(`Welcome ${process.env.USER}`);
+        expect(await loginPage.getWelcomeText()).toBe(`Welcome ${process.env.ADMIN_USERNAME}`);
     });
 });

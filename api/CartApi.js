@@ -1,8 +1,5 @@
 import EndpointsMap from '../helper/EnpointsMap';
 import ApiTestBase from '../helper/utils/ApiTestBase';
-import LoginApi from '../api/LoginApi';
-const fs = require('fs').promises;
-const path = require('path');
 
 class CartApi extends ApiTestBase {
     constructor(page) {

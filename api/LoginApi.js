@@ -1,8 +1,5 @@
 import EndpointsMap from '../helper/EnpointsMap';
 import ApiTestBase from '../helper/utils/ApiTestBase';
-import cleanText from 'helper/utils/cleanText';
-const fs = require('fs').promises;
-const path = require('path');
 
 class LoginApi extends ApiTestBase {
     constructor(page) {
@@ -17,8 +14,8 @@ class LoginApi extends ApiTestBase {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                password: "YWRtaW4=",
-                username: "admin"
+                password: process.env.API_PASSWORD,
+                username: process.env.API_USER
             })
         });
 
