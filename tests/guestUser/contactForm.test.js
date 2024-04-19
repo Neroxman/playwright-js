@@ -8,7 +8,7 @@ import alerts from '../../test-data/alerts.json';
 test.describe('Contact form tests', () => {
     let contactPage;
 
-    test.beforeEach(async ({ page }) => {
+    test.beforeEach('Setup and go to contact form', async ({ page }) => {
         const basePage = new BasePage(page);
         await basePage.goTo(config.baseUrl);
         contactPage = new ContactPage(page);

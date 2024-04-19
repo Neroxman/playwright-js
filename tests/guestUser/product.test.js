@@ -11,7 +11,7 @@ test.describe('Product page tests', () => {
   let homePage;
   let productPage;
 
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach('Setup and go to product page', async ({ page }) => {
     const basePage = new BasePage(page);
     await basePage.goTo(config.baseUrl);
     homePage = new HomePage(page);

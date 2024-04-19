@@ -9,7 +9,7 @@ import CartPage from '../../pages/CartPage';
 test.describe('Cart page tests', () => {
     let cartPage;
 
-    test.beforeEach(async ({ page }) => {
+    test.beforeEach('Setup and go to CArt page', async ({ page }) => {
         const productApi = new ProductApi(page);
         await productApi.getGuestUserCookie();
         await productApi.addProductToCartUsingCookies(productId.SAMSUNG_GALAXY_S6); 
